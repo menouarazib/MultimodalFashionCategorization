@@ -19,6 +19,7 @@ logger = logging.getLogger(__name__)
 use_saved_embeddings = False
 dir_name = "models"
 
+
 def load_and_preprocess_data():
     logger.info("Loading and preprocessing data...")
     # Set a seed for the random number generator
