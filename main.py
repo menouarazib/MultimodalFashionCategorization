@@ -98,7 +98,7 @@ def main():
 
     model_path = os.path.join(dir_name, "multi_model_classifier")
     multi_model_classifier.save(model_path)
-    logger.info("Program finished.")
+    logger.info("Program finished!")
 
     # Plot Losses and Accuracies
     plot_history(history)
