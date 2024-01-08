@@ -17,7 +17,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 use_saved_embeddings = False
-
+dir_name = "models"
 
 def load_and_preprocess_data():
     logger.info("Loading and preprocessing data...")
@@ -55,7 +55,7 @@ def train_model(train_dataset, train_class_numbers, resnet_model, bert_model, to
                                    metrics=['accuracy'])
 
     # Create a callback that saves the model's weights
-    checkpoint = ModelCheckpoint(filepath='best_model.tf',
+    checkpoint = ModelCheckpoint(filepath=os.path.join(dir_name, "best_model"),
                                  monitor='val_accuracy',
                                  verbose=1,
                                  save_best_only=True,
@@ -66,7 +66,7 @@ def train_model(train_dataset, train_class_numbers, resnet_model, bert_model, to
 
     # Fit the model with the callback
     history = multi_model_classifier.fit([image_embeddings_array, description_embeddings_array],
-                                         train_class_numbers,
+                                         train_class_numbers[:51],
                                          epochs=30,
                                          validation_split=0.2, callbacks=callbacks_list)
 
@@ -75,6 +75,14 @@ def train_model(train_dataset, train_class_numbers, resnet_model, bert_model, to
 
 def main():
     logger.info("Starting program...")
+    # Check if the directory already exists
+    if not os.path.exists(dir_name):
+        # Create your directory
+        os.makedirs(dir_name)
+        logger.info(f"'{dir_name}' directory created.")
+    else:
+        logger.info(f"'{dir_name}' directory already exists.")
+
     # Load pretrained models
     resnet_model = load_resnet()
     bert_model, tokenizer = load_bert_tokenize_model()
@@ -83,12 +91,12 @@ def main():
     multi_model_classifier, history = train_model(dataset, classes, resnet_model, bert_model,
                                                   tokenizer)
 
-    history_path = os.path.join("models", 'history.pickle')
+    history_path = os.path.join(dir_name, 'history.pickle')
     # Save the history object as a pickle file
     with open(history_path, 'wb') as f:
         pickle.dump(history.history, f)
 
-    model_path = os.path.join("models", "multi_model_classifier")
+    model_path = os.path.join(dir_name, "multi_model_classifier")
     multi_model_classifier.save(model_path)
     logger.info("Program finished.")
 
