@@ -68,8 +68,6 @@ def generate_embeddings(train_dataset: Dataset, resnet_model: tf.keras.Model, be
         description_embeddings = tf.reduce_mean(embeddings, axis=1)
         image_embeddings_list.append(image_embeddings[0])
         description_embeddings_list.append(description_embeddings[0])
-        if i!=0 and i%50 == 0:
-            break
 
     # Convert the lists to numpy arrays
     image_embeddings_array = np.array(image_embeddings_list)

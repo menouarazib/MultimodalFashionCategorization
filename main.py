@@ -66,7 +66,7 @@ def train_model(train_dataset, train_class_numbers, resnet_model, bert_model, to
 
     # Fit the model with the callback
     history = multi_model_classifier.fit([image_embeddings_array, description_embeddings_array],
-                                         train_class_numbers[:51],
+                                         train_class_numbers,
                                          epochs=30,
                                          validation_split=0.2, callbacks=callbacks_list)
 
