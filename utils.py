@@ -77,24 +77,49 @@ def generate_embeddings(train_dataset: Dataset, resnet_model: tf.keras.Model, be
 
 
 def plot_history(history):
-    # Plot training & validation accuracy values
-    plt.figure(figsize=(12, 4))
-    plt.subplot(1, 2, 1)
-    plt.plot(history.history['accuracy'])
-    plt.plot(history.history['val_accuracy'])
-    plt.title('Model accuracy')
-    plt.ylabel('Accuracy')
-    plt.xlabel('Epoch')
-    plt.legend(['Train', 'Validation'], loc='upper left')
+    # Check if history contains data for multiple outputs
+    # Check if history contains data for multiple outputs
+    if 'output_1_accuracy' in history:
+        # Plot training & validation accuracy values for each output
+        fig, axs = plt.subplots(2, 3, figsize=(20, 10), sharex=True, sharey='row')
 
-    # Plot training & validation loss values
-    plt.subplot(1, 2, 2)
-    plt.plot(history.history['loss'])
-    plt.plot(history.history['val_loss'])
-    plt.title('Model loss')
-    plt.ylabel('Loss')
-    plt.xlabel('Epoch')
-    plt.legend(['Train', 'Validation'], loc='upper left')
+        for i in range(3):
+            # Accuracy
+            axs[0, i].plot(history[f'output_{i + 1}_accuracy'])
+            axs[0, i].plot(history[f'val_output_{i + 1}_accuracy'])
+            axs[0, i].set_title(f'Model accuracy for Category Level {i + 1}')
+            axs[0, i].legend(['Train', 'Validation'], loc='best')
+            if i == 0:
+                axs[0, i].set_ylabel('Accuracy')
+
+            # Loss
+            axs[1, i].plot(history[f'output_{i + 1}_loss'])
+            axs[1, i].plot(history[f'val_output_{i + 1}_loss'])
+            axs[1, i].set_title(f'Model loss Category Level {i + 1}')
+            axs[1, i].set_xlabel('Epoch')
+            if i == 0:
+                axs[1, i].set_ylabel('Loss')
+
+    else:
+        # Plot training & validation accuracy values
+        plt.figure(figsize=(12, 5))
+        plt.subplot(1, 2, 1)
+        plt.plot(history['accuracy'])
+        plt.plot(history['val_accuracy'])
+        plt.title('Model accuracy')
+        plt.ylabel('Accuracy')
+        plt.xlabel('Epoch')
+        plt.ylim([0.8, 1])
+        plt.legend(['Train', 'Validation'], loc='best')
+
+        # Plot training & validation loss values
+        plt.subplot(1, 2, 2)
+        plt.plot(history['loss'])
+        plt.plot(history['val_loss'])
+        plt.title('Model loss')
+        plt.ylabel('Loss')
+        plt.xlabel('Epoch')
+        plt.legend(['Train', 'Validation'], loc='best')
 
     plt.tight_layout()
     plt.show()
