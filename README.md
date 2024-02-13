@@ -11,6 +11,7 @@ In the dynamic e-commerce landscape, online sellers face the time-consuming task
 
 **Keywords**: Multimodality, Computer Vision, Natural Language Processing, Hierarchical Categorization, Fashion Items, E-commerce Product Classification.
 
+**Submitted to CNRIA 2024 : 14th Conference on Research in Computer Science and its Applications**
 
 | Method | SMOTE | Multimodality | Category Level 1 | Category Level 2 | Category Level 3 |
 |--------|-------|---------------|------------------|------------------|------------------|
