@@ -1,4 +1,4 @@
-A Multimodal Framework for Fashion Item Categorization
+Enhancing Classification with Multimodality: A Hierarchical Approach to Fashion Item Categorization
 ==========================================================
 
 <h1 align="center">
@@ -20,3 +20,5 @@ In the dynamic e-commerce landscape, online sellers face the time-consuming task
 
 
 **Table 1:** Comparison of validation accuracy across different levels for hierarchical category classification.
+
+## Accepted for: **FTC 2024 - Future Technologies Conference 2024**
