@@ -12,6 +12,11 @@ In the dynamic e-commerce landscape, online sellers face the time-consuming task
 **Keywords**: Multimodality, Computer Vision, Natural Language Processing, Hierarchical Categorization, Fashion Items, E-commerce Product Classification.
 
 | Method | SMOTE | Multimodality | Category Level 1 | Category Level 2 | Category Level 3 |
-|--------|-------|---------------|------------------|------------------|------------------|
-| Kolisnik et al. (2021) | No | No | 0.997 | 0.980 | 0.910 |
-| Ours | No | Yes | 0.997 | **0.985** | **0.960** |
+| --- | --- | --- | --- | --- | --- |
+| Fengzi Li *et al.* [li2020neural] | Yes | No | N/A | 0.957 | N/A |
+| Brendan Kolisnik *et al.* [kolisnik2021condition] | No | No | 0.997 | 0.980 | 0.910 |
+| Ours (Configuration Base) | No | Yes | 0.997 | 0.985 | 0.960 |
+| Ours (Configuration Large) | No | Yes | **0.999** | **0.999** | **0.9995** |
+
+
+**Table 1:** Comparison of validation accuracy across different levels for hierarchical category classification.
