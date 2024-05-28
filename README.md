@@ -1,6 +1,6 @@
 Enhancing Classification with Multimodality: A Hierarchical Approach to Fashion Item Categorization
 ==========================================================
-## <span style="color: red;">Accepted</span> for: **FTC 2024 - Future Technologies Conference 2024**
+## Accepted for FTC 2024 - Future Technologies Conference 2024
 
 
 <h1 align="center">
