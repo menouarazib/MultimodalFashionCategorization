@@ -1,5 +1,7 @@
 Enhancing Classification with Multimodality: A Hierarchical Approach to Fashion Item Categorization
 ==========================================================
+## <span style="color: red;">Accepted</span> for: **FTC 2024 - Future Technologies Conference 2024**
+
 
 <h1 align="center">
 <img src="https://raw.githubusercontent.com/menouarazib//MultimodalFashionCategorization/444f122fbd0c718d543e306304ba308329879cdd/images/architcture.jpg" width="800">
@@ -20,5 +22,3 @@ In the dynamic e-commerce landscape, online sellers face the time-consuming task
 
 
 **Table 1:** Comparison of validation accuracy across different levels for hierarchical category classification.
-
-## Accepted for: **FTC 2024 - Future Technologies Conference 2024**
